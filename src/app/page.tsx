@@ -69,7 +69,7 @@ export default function Home() {
                       autoPlay
                       muted
                       className="w-full h-full object-cover "
-                      src="https://rr4---sn-aj4g55-5v.googlevideo.com/videoplayback?expire=1766856525&ei=7cJPad-JG--Di9oPmdaBYA&ip=172.71.172.4&id=o-ANWNjs39nxLcepfNMrF_FBQKLiv_atSkeRBXW77AV-xq&itag=137&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&ctier=A&pfa=5&hightc=yes&siu=1&bui=AYUSA3C8Z15Vx0knFkoiTrcEJ-cA50mN3-Yf4Ob55_8KXGkMPz2er-c_wT2C8BMEjYK3u5PB_w&spc=wH4Qq-lMPkJ0DZ4I6FWOyvtZwNmWf5lI-PUeDLVGmwu06PJ5TcqI5wNOLQ&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&gir=yes&clen=38208633&dur=124.033&lmt=1765518006081358&keepalive=yes&fexp=51552689,51565116,51565682,51580968&txp=5432534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cctier%2Cpfa%2Chightc%2Csiu%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRgIhAN0Ke3TnGf3LsX5fzunuTy3X618bCOCtEV-eCIAyxyxxAiEA1javkk4U3jQHK2DGnFrHlXc3gfRpOp6pUbF-teKtk4k%3D&redirect_counter=1&rm=sn-4g5ekr76&rrc=104&req_id=ffc8fb9a926ba3ee&cms_redirect=yes&cmsv=e&cps=43&ipbypass=yes&met=1766839442,&mh=CY&mip=2a01:4f8:1c1b:2051::1&mm=31&mn=sn-aj4g55-5v&ms=au&mt=1766838500&mv=u&mvi=4&pl=63&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgFPAs4kUMHPnRmzht-2ltXhqzevKUTuUtMFw9hz_HpigCIBhrpSnRSbSgfR5etphMhOJn9BPbbs9nvcTdNEPxSqvP"
+                      src="https://uupload.ir/view/ytdown.com_youtube_diablo-iv-story-launch-trailer_media_hukrlkmcz1i_006_144p_nedw.mp4/"
                     ></motion.video>
                   </div>
                 )}
