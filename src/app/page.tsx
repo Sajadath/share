@@ -69,7 +69,7 @@ export default function Home() {
                       autoPlay
                       muted
                       className="w-full h-full object-cover "
-                      src="https://s6.uupload.ir/filelink/ab380c44965500aad4c35e45b53433d3_ab4441bbf3/ytdown.com_youtube_diablo-iv-story-launch-trailer_media_hukrlkmcz1i_006_144p_nedw.mp4"
+                      src="https://uploadkon.ir/uploads/d1a027_25YTDown-com-YouTube-Diablo-IV-Story-Launch-Trailer-Media-HukrLKMCz1I-006-144p.mp4"
                     ></motion.video>
                   </div>
                 )}
