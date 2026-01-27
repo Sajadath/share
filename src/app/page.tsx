@@ -101,29 +101,28 @@ export default function Home() {
   return (
     <main className="relative  selection:bg-green-400 selection:text-black">
       <motion.div className="flex flex-col gap-8 justify-center flex-wrap max-w-175 mx-auto overflow-auto  px-4 pt-6 ">
-        <AnimatePresence>
-          {isFetching ? (
-            <Loading />
-          ) : error ? (
-            <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
-              {error.message}
-            </div>
-          ) : data && data.length > 0 ? (
-            data.map((item) => (
-              <LinkComp
-                handleDelete={deleteTextInServer}
-                isDeletingTheText={isDeletingTheText}
-                key={item.id}
-                itemId={item.id}
-                itemValue={item.value}
-              />
-            ))
-          ) : (
-            <p className="border border-yellow-300 p-4 rounded-2xl text-yellow-400   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-yellow-400 select-none w-full text-center bg-yellow-500/20">
-              There are no saved data! Start by sharing something from bottom
-            </p>
-          )}
-        </AnimatePresence>
+        {isFetching ? (
+          <Loading />
+        ) : error ? (
+          <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
+            {error.message}
+          </div>
+        ) : data && data.length > 0 ? (
+          data.map((item) => (
+            <LinkComp
+              handleDelete={deleteTextInServer}
+              isDeletingTheText={isDeletingTheText}
+              key={item.id}
+              itemId={item.id}
+              itemValue={item.value}
+            />
+          ))
+        ) : (
+          <p className="border border-yellow-300 p-4 rounded-2xl text-yellow-400   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-yellow-400 select-none w-full text-center bg-yellow-500/20">
+            There are no saved data! Start by sharing something from bottom
+          </p>
+        )}
+
         <div ref={lastMessage} className="invisible h-1 w-10 mt-60" />
       </motion.div>
 

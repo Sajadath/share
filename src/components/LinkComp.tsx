@@ -27,10 +27,7 @@ function LinkComp({
     }
   };
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <div
       className={`flex p-3 w-full bg-black/10 flex-col gap-2 border-2 shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] rounded-2xl transition-all duration-500  ${
         isCoppied
           ? "border-green-400 shadow-green-400"
@@ -116,7 +113,7 @@ function LinkComp({
       >
         {itemValue}
       </p>
-    </motion.div>
+    </div>
   );
 }
 
