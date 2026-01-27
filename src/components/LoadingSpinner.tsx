@@ -1,8 +1,8 @@
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ textColor }: { textColor?: string }) => {
   return (
     <span className="flex items-center gap-2">
       <svg
-        className="w-5 h-5 text-black animate-spin"
+        className={`w-5 h-5 ${textColor || "text-black"} animate-spin`}
         viewBox="0 0 50 50"
         aria-hidden="true"
       >

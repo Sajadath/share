@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { RiDeleteBinLine } from "react-icons/ri";
 import LoadingSpinner from "./LoadingSpinner";
+import { MdOutlineContentCopy } from "react-icons/md";
 
 function LinkComp({
   itemValue,
@@ -15,6 +17,7 @@ function LinkComp({
   handleDelete: (id: string) => void;
 }) {
   const [isCoppied, setIsCoppied] = useState(false);
+  const [isDeletingThisOne, setIsDeletingThisOne] = useState(false);
 
   const copyToClipboard = async (copyLink: string) => {
     try {
@@ -43,13 +46,63 @@ function LinkComp({
             setIsCoppied(true);
           }}
         >
-          {isCoppied ? "✅" : "©️"}
+          {isCoppied ? (
+            <div>
+              <svg
+                className="w-6 h-6 text-green-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <filter
+                    id="neonShadowGreen"
+                    x="-50%"
+                    y="-50%"
+                    width="200%"
+                    height="200%"
+                  >
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <title>Copied</title>
+
+                <path
+                  d="M20 6L9 17l-5-5"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  filter="url(#neonShadowGreen)"
+                />
+              </svg>
+            </div>
+          ) : (
+            <MdOutlineContentCopy className="size-6 text-blue-400 drop-shadow-blue-400 drop-shadow-sm" />
+          )}
         </button>
         <button
-          onClick={() => handleDelete(itemId)}
-          className="p-2   rounded cursor-pointer hover:scale-120 transition-all duration-300 bg-linear-to-br shadow-lg shadow-black from-black -900 to-transparent"
+          disabled={isDeletingTheText}
+          onClick={() => {
+            setIsDeletingThisOne(true);
+            handleDelete(itemId);
+          }}
+          className="p-1 rounded  cursor-pointer hover:scale-120 transition-all duration-300  bg-transparent "
         >
-          {isDeletingTheText ? <LoadingSpinner /> : "❌"}
+          {isDeletingTheText && isDeletingThisOne ? (
+            <LoadingSpinner
+              textColor={isCoppied ? "text-green-400" : "text-blue-400"}
+            />
+          ) : (
+            <RiDeleteBinLine className={`size-6 text-white/70`} />
+          )}
         </button>
       </div>
       <p

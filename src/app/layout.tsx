@@ -1,6 +1,7 @@
 // app/layout.tsx
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import "./globals.css";
-import Providers from "./providers";
+import ToastifyProvider from "@/providers/ToastifyProvider";
 
 export const metadata = {
   title: "Modern",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-neutral-950 text-white">
-        <Providers>{children}</Providers>
+        <ReactQueryProvider>
+          <ToastifyProvider>{children}</ToastifyProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

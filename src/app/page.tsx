@@ -7,6 +7,7 @@ import ShareButton from "@/components/ShareButton";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "@/components/Loading";
 import { AnimatePresence, motion } from "motion/react";
+import { toast } from "react-toastify";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -52,21 +53,37 @@ export default function Home() {
     retry: 0,
   });
 
-  const { mutate: saveTextInServer, isPending: isSavingTheText } = useMutation({
-    mutationFn: saveTheText,
-    onSuccess: () => {
-      setInput("");
-      refetch();
-    },
-  });
+  const { mutate: saveTextInServerMutate, isPending: isSavingTheText } =
+    useMutation({
+      mutationFn: saveTheText,
+      onSuccess: () => {
+        setInput("");
+        refetch();
+      },
+    });
 
   const { mutate: deleteTextInServer, isPending: isDeletingTheText } =
     useMutation({
       mutationFn: (id: string) => deleteText(id),
       onSuccess: () => {
         refetch();
+        toast.success("Message deleted successfully", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       },
     });
+
+  const saveTextInServer = () => {
+    if (!input.trim()) return;
+    saveTextInServerMutate();
+  };
 
   useEffect(() => {
     if (!data) return;
@@ -83,7 +100,7 @@ export default function Home() {
 
   return (
     <main className="relative  selection:bg-green-400 selection:text-black">
-      <motion.div className="flex gap-8 justify-center flex-wrap max-w-175 mx-auto overflow-auto  px-4 pt-6 ">
+      <motion.div className="flex flex-col gap-8 justify-center flex-wrap max-w-175 mx-auto overflow-auto  px-4 pt-6 ">
         <AnimatePresence>
           {isFetching ? (
             <Loading />

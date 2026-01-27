@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Loading = () => {
   return (
-    <div className="px-2 py-6 flex items-center justify-center gap-3 ">
+    <div className=" mx-auto px-2 py-12 flex items-center justify-center gap-3 ">
       {[0, 0.15, 0.3].map((delay, index) => (
         <motion.div
           key={index}
