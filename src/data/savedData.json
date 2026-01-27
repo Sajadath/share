@@ -2,5 +2,13 @@
   {
     "id": "1769506415397",
     "value": "TEST 123"
+  },
+  {
+    "id": "1769538235856",
+    "value": "vless://b0c7f16b-fb13-4e8f-aa31-ce97bcc82d99@63.141.128.23:443?path=%2F&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&host=blog.irantrends.blog&fp=chrome&type=ws&sni=blog.irantrends.blog#Jalal-universe-DAAAAM"
+  },
+  {
+    "id": "1769538239944",
+    "value": "vless://8ab73e88-b811-46df-9a0a-9d77cb974cb2@63.141.128.23:2053?mode=auto&path=%2Fapi%2Fstream%2Fuploads&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&host=panel.metavercut.com&fp=chrome&type=xhttp&sni=panel.metavercut.com#Rostam-universe-DAMDAM"
   }
 ]

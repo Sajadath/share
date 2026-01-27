@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import LinkComp from "@/components/LinkComp";
 import Input from "@/components/Input";
 import ShareButton from "@/components/ShareButton";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "@/components/Loading";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -19,13 +19,7 @@ export default function Home() {
     return data;
   };
 
-  const { data, isFetching, refetch, error } = useQuery({
-    queryFn: getSavedData,
-    queryKey: ["savedData"],
-    retry: 0,
-  });
-
-  const saveTheTextToJsonFile = async () => {
+  const saveTheText = async () => {
     if (!input) return;
 
     const res = await fetch("/api/save-text", {
@@ -35,11 +29,6 @@ export default function Home() {
     });
 
     const result = await res.json();
-
-    if (result.success) {
-      setInput("");
-      refetch();
-    }
   };
 
   const deleteText = async (id: string) => {
@@ -56,6 +45,28 @@ export default function Home() {
       refetch();
     }
   };
+
+  const { data, isFetching, refetch, error } = useQuery({
+    queryFn: getSavedData,
+    queryKey: ["savedData"],
+    retry: 0,
+  });
+
+  const { mutate: saveTextInServer, isPending: isSavingTheText } = useMutation({
+    mutationFn: saveTheText,
+    onSuccess: () => {
+      setInput("");
+      refetch();
+    },
+  });
+
+  const { mutate: deleteTextInServer, isPending: isDeletingTheText } =
+    useMutation({
+      mutationFn: (id: string) => deleteText(id),
+      onSuccess: () => {
+        refetch();
+      },
+    });
 
   useEffect(() => {
     if (!data) return;
@@ -83,7 +94,8 @@ export default function Home() {
           ) : data && data.length > 0 ? (
             data.map((item) => (
               <LinkComp
-                handleDelete={deleteText}
+                handleDelete={deleteTextInServer}
+                isDeletingTheText={isDeletingTheText}
                 key={item.id}
                 itemId={item.id}
                 itemValue={item.value}
@@ -100,11 +112,15 @@ export default function Home() {
 
       <div className="flex p-4 bg-neutral-950  items-center justify-center w-full fixed bottom-0 pb-4 gap-4  ">
         <Input
-          handleEnter={saveTheTextToJsonFile}
+          handleEnter={saveTextInServer}
+          isSavingTheText={isSavingTheText}
           inputValue={input}
           setInputValue={setInput}
         />
-        <ShareButton handleClick={saveTheTextToJsonFile} />
+        <ShareButton
+          isSavingTheText={isSavingTheText}
+          handleClick={saveTextInServer}
+        />
       </div>
     </main>
   );

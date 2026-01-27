@@ -1,7 +1,6 @@
-import fs from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 
-const filePath = path.join(process.cwd(), "src/data/savedData.json");
+const redis = Redis.fromEnv();
 
 export async function DELETE(req) {
   try {
@@ -10,37 +9,26 @@ export async function DELETE(req) {
     if (!id) {
       return Response.json(
         { success: false, message: "ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    if (!fs.existsSync(filePath)) {
-      return Response.json(
-        { success: false, message: "No data file found" },
-        { status: 404 }
-      );
-    }
+    const exists = await redis.hexists("texts", id);
 
-    const file = fs.readFileSync(filePath, "utf-8");
-    const data = JSON.parse(file);
-
-    const filteredData = data.filter((item) => item.id !== id);
-
-    // If nothing was deleted
-    if (filteredData.length === data.length) {
+    if (!exists) {
       return Response.json(
         { success: false, message: "ID not found" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
-    fs.writeFileSync(filePath, JSON.stringify(filteredData, null, 2));
+    await redis.hdel("texts", id);
 
     return Response.json({ success: true });
   } catch (error) {
     return Response.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

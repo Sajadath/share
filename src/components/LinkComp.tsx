@@ -1,13 +1,16 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 function LinkComp({
   itemValue,
+  isDeletingTheText,
   itemId,
   handleDelete,
 }: {
   itemValue: string;
+  isDeletingTheText: boolean;
   itemId: string;
   handleDelete: (id: string) => void;
 }) {
@@ -46,7 +49,7 @@ function LinkComp({
           onClick={() => handleDelete(itemId)}
           className="p-2   rounded cursor-pointer hover:scale-120 transition-all duration-300 bg-linear-to-br shadow-lg shadow-black from-black -900 to-transparent"
         >
-          ❌
+          {isDeletingTheText ? <LoadingSpinner /> : "❌"}
         </button>
       </div>
       <p

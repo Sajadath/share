@@ -1,15 +1,16 @@
-import fs from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 
-const filePath = path.join(process.cwd(), "src/data/savedData.json");
+const redis = Redis.fromEnv();
 
 export async function GET() {
-  if (!fs.existsSync(filePath)) {
-    return Response.json([]);
-  }
+  const texts = await redis.hgetall("texts");
 
-  const file = fs.readFileSync(filePath, "utf-8");
-  const data = JSON.parse(file);
+  if (!texts) return Response.json([]);
 
-  return Response.json(data);
+  const result = Object.entries(texts).map(([id, value]) => ({
+    id,
+    value,
+  }));
+
+  return Response.json(result);
 }

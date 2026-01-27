@@ -2,13 +2,19 @@ import { Dispatch, FC, SetStateAction, useEffect, useRef } from "react";
 
 interface InputProps {
   inputValue: string;
+  isSavingTheText: boolean;
   setInputValue: Dispatch<SetStateAction<string>>;
   handleEnter: () => void;
 }
 
 const MAX_HEIGHT = 200; // px (adjust as you like)
 
-const Input: FC<InputProps> = ({ inputValue, setInputValue, handleEnter }) => {
+const Input: FC<InputProps> = ({
+  inputValue,
+  isSavingTheText,
+  setInputValue,
+  handleEnter,
+}) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -24,6 +30,7 @@ const Input: FC<InputProps> = ({ inputValue, setInputValue, handleEnter }) => {
   return (
     <textarea
       ref={textareaRef}
+      disabled={isSavingTheText}
       value={inputValue}
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {
@@ -50,6 +57,7 @@ const Input: FC<InputProps> = ({ inputValue, setInputValue, handleEnter }) => {
         shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)]
         transition-all duration-300
         resize-none overflow-hidden
+        disabled:opacity-40
       "
     />
   );

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.16",
+    "@upstash/redis": "^1.36.1",
     "motion": "^12.23.26",
     "next": "16.1.1",
     "react": "19.2.3",
