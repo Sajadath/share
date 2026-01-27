@@ -1,22 +1,6 @@
 [
   {
     "id": "1769506415397",
-    "value": "vless://b95e917a-49fd-47c6-893d-cf8a7fbfbd4c@ee1vip.vnet215.xyz:24002?security=&encryption=none&host=zara.com&headerType=http&type=tcp#%F0%9F%87%AA%F0%9F%87%AA%D8%A7%D8%B3%D8%AA%D9%88%D9%86%DB%8C%7CEstonia-101%E2%AD%90VIPx5.0"
-  },
-  {
-    "id": "1769506423465",
-    "value": "vless://cdd2a1dc-4190-4475-aae4-f30b82d6c893@reekc.team-pluss.com:80?mode=auto&path=%2F&security=&encryption=none&extra=%7B%22scMaxEachPostBytes%22%3A%201000000%2C%20%22scMaxConcurrentPosts%22%3A%20100%2C%20%22scMinPostsIntervalMs%22%3A%2030%2C%20%22xPaddingBytes%22%3A%20%22100-1000%22%2C%20%22noGRPCHeader%22%3A%20false%7D&type=xhttp#%F0%9F%92%8E%20%D8%B3%D8%B1%D9%88%D8%B1%20%D9%BE%D8%B1%D8%B3%D8%B1%D8%B9%D8%AA%20%D9%82%D8%AF%D8%B1%D8%AA%D9%85%D9%86%D8%AF%20%F0%9F%92%8E"
-  },
-  {
-    "id": "1769506427896",
-    "value": "vless://cdd2a1dc-4190-4475-aae4-f30b82d6c893@cloud2.team-pluss.com:2087?path=%2F&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&host=menugetsfull.get-service.ir&fp=chrome&type=ws&sni=menugetsfull.get-service.ir#cloud%202%20%F0%9F%87%B3%F0%9F%87%B1"
-  },
-  {
-    "id": "1769506431925",
-    "value": "vless://cdd2a1dc-4190-4475-aae4-f30b82d6c893@cloud.team-pluss.com:2087?path=%2F&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&host=menugetsfull.get-service.ir&fp=chrome&type=ws&sni=menugetsfull.get-service.ir#cloud%201%20%F0%9F%87%B3%F0%9F%87%B1"
-  },
-  {
-    "id": "1769506435301",
-    "value": "vless://cdd2a1dc-4190-4475-aae4-f30b82d6c893@151.101.169.242:80?mode=auto&path=%2F&security=&encryption=none&extra=%7B%22scMaxEachPostBytes%22%3A%201000000%2C%20%22scMaxConcurrentPosts%22%3A%20100%2C%20%22scMinPostsIntervalMs%22%3A%2030%2C%20%22xPaddingBytes%22%3A%20%22100-1000%22%2C%20%22noGRPCHeader%22%3A%20false%7D&host=Spd-mynames.global.ssl.fastly.net&type=xhttp#%28%20%F0%9F%8C%A9%7C%20%D8%B3%D8%B1%D9%88%DB%8C%D8%B3%20CDN%20%F0%9F%87%B3%F0%9F%87%B1%20%29%20%28%D9%85%D9%88%D9%82%D8%AA%29"
+    "value": "TEST 123"
   }
 ]
