@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.redd.it", port: "", pathname: "**" },
       {
         protocol: "https",
-        hostname: "wow.zamimg.com",
+        hostname: "images.apple.com",
         port: "",
         pathname: "**",
       },
