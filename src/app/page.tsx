@@ -47,7 +47,13 @@ export default function Home() {
     }
   };
 
-  const { data, isFetching, refetch, error } = useQuery({
+  const {
+    data,
+    isLoading: isLoadingTexts,
+    isFetching,
+    refetch,
+    error,
+  } = useQuery({
     queryFn: getSavedData,
     queryKey: ["savedData"],
     retry: 0,
@@ -106,6 +112,8 @@ export default function Home() {
           <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
             {error.message}
           </div>
+        ) : isLoadingTexts ? (
+          <Loading />
         ) : sortedData && sortedData.length > 0 ? (
           sortedData.map((item) => (
             <LinkComp
@@ -121,7 +129,7 @@ export default function Home() {
             There are no saved data! Start by sharing something from bottom
           </p>
         )}
-        {isFetching && <Loading />}
+        {isFetching && !isLoadingTexts && <Loading />}
 
         <div ref={lastMessage} className="invisible h-1 w-10 mt-60" />
       </motion.div>
