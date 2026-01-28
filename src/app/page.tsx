@@ -99,8 +99,8 @@ export default function Home() {
   }, [data]);
 
   return (
-    <main className="relative  selection:bg-green-400 selection:text-black max-h-dvh">
-      <motion.div className="flex flex-col gap-8 justify-center flex-wrap max-w-175 mx-auto overflow-auto  px-4 pt-6 ">
+    <main className="relative  selection:bg-green-400 selection:text-black ">
+      <motion.div className="flex flex-col gap-8 justify-center  max-w-175 mx-auto overflow-auto h-full  px-4 pt-6 ">
         {isFetching ? (
           <Loading />
         ) : error ? (
@@ -126,7 +126,7 @@ export default function Home() {
         <div ref={lastMessage} className="invisible h-1 w-10 mt-60" />
       </motion.div>
 
-      <div className="flex p-4 bg-neutral-950 flex-col sm:flex-row items-stretch sm:items-center justify-center w-full fixed bottom-0 pb-4 gap-4  ">
+      <div className="flex p-4 bg-neutral-950 flex-col sm:flex-row items-stretch sm:items-center justify-center w-full fixed bottom-0 left-0 right-0 pb-4 gap-4  ">
         <Input
           handleEnter={saveTextInServer}
           isSavingTheText={isSavingTheText}
