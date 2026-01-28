@@ -52,6 +52,7 @@ export default function Home() {
     queryKey: ["savedData"],
     retry: 0,
   });
+  const sortedData = data?.sort((a, b) => Number(a.id) - Number(b.id));
 
   const { mutate: saveTextInServerMutate, isPending: isSavingTheText } =
     useMutation({
@@ -107,8 +108,8 @@ export default function Home() {
           <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
             {error.message}
           </div>
-        ) : data && data.length > 0 ? (
-          data.map((item) => (
+        ) : sortedData && sortedData.length > 0 ? (
+          sortedData.map((item) => (
             <LinkComp
               handleDelete={deleteTextInServer}
               isDeletingTheText={isDeletingTheText}
