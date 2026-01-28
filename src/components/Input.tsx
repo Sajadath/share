@@ -46,7 +46,7 @@ const Input: FC<InputProps> = ({
       id="textInput"
       rows={1}
       className="
-        w-full max-w-140 min-w-75
+        grow max-w-full sm:max-w-140 
         rounded-2xl py-3 px-4
         border-2 outline-none
         font-bold text-blue-400
