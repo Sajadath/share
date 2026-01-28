@@ -102,9 +102,7 @@ export default function Home() {
   return (
     <main className="relative  selection:bg-green-400 selection:text-black ">
       <motion.div className="flex flex-col gap-8 justify-center  max-w-175 mx-auto overflow-auto h-full  px-4 pt-6 ">
-        {isFetching ? (
-          <Loading />
-        ) : error ? (
+        {error ? (
           <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
             {error.message}
           </div>
@@ -123,6 +121,7 @@ export default function Home() {
             There are no saved data! Start by sharing something from bottom
           </p>
         )}
+        {isFetching && <Loading />}
 
         <div ref={lastMessage} className="invisible h-1 w-10 mt-60" />
       </motion.div>
