@@ -107,7 +107,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col selection:bg-green-400 selection:text-black h-dvh ">
-      <motion.div className="flex grow flex-col gap-8 max-w-175 mx-auto overflow-hidden hover:overflow-auto px-4 pt-6 ">
+      <motion.div className="flex grow flex-col gap-8 max-w-175 w-full mx-auto  overflow-y-auto overflow-x-hidden px-4 pt-6 ">
         {error ? (
           <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
             {error.message}
