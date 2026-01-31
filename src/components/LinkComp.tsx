@@ -111,7 +111,7 @@ function LinkComp({
           isCoppied ? "text-green-400" : "text-blue-400"
         }`}
       >
-        {itemValue}
+        {typeof itemValue === "string" ? itemValue : JSON.stringify(itemValue)}
       </p>
     </div>
   );

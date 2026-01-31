@@ -8,6 +8,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "@/components/Loading";
 import { AnimatePresence, motion } from "motion/react";
 import { toast } from "react-toastify";
+import { stringify } from "querystring";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -104,6 +105,8 @@ export default function Home() {
 
     prevLength.current = data.length;
   }, [data]);
+
+  console.log(sortedData);
 
   return (
     <main className="relative  selection:bg-green-400 selection:text-black ">

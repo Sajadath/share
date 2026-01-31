@@ -4,7 +4,7 @@ const redis = Redis.fromEnv();
 
 export async function POST(req) {
   try {
-    const { value } = await req.json();
+    let { value } = await req.json();
 
     if (!value) {
       return Response.json(
@@ -14,6 +14,8 @@ export async function POST(req) {
     }
 
     const id = Date.now().toString();
+
+    if (typeof value !== "string") value = JSON.stringify(value);
 
     await redis.hset("texts", { [id]: value });
 
