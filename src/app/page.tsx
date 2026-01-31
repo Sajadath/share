@@ -6,9 +6,8 @@ import Input from "@/components/Input";
 import ShareButton from "@/components/ShareButton";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "@/components/Loading";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { toast } from "react-toastify";
-import { stringify } from "querystring";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -24,13 +23,11 @@ export default function Home() {
   const saveTheText = async () => {
     if (!input) return;
 
-    const res = await fetch("/api/save-text", {
+    await fetch("/api/save-text", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ value: input }),
     });
-
-    const result = await res.json();
   };
 
   const deleteText = async (id: string) => {
@@ -109,8 +106,8 @@ export default function Home() {
   console.log(sortedData);
 
   return (
-    <main className="relative  selection:bg-green-400 selection:text-black ">
-      <motion.div className="flex flex-col gap-8 justify-center  max-w-175 mx-auto overflow-auto h-full  px-4 pt-6 ">
+    <main className="flex flex-col selection:bg-green-400 selection:text-black h-dvh ">
+      <motion.div className="flex grow flex-col gap-8 max-w-175 mx-auto overflow-hidden hover:overflow-auto px-4 pt-6 ">
         {error ? (
           <div className="border border-red-500 p-4 rounded-2xl text-red-500   shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] shadow-red-500 select-none w-full text-center bg-red-500/20">
             {error.message}
@@ -134,10 +131,10 @@ export default function Home() {
         )}
         {isFetching && !isLoadingTexts && <Loading />}
 
-        <div ref={lastMessage} className="invisible h-1 w-10 mt-60" />
+        <div ref={lastMessage} className="invisible h-1 w-10 mt-0" />
       </motion.div>
 
-      <div className="flex p-4 bg-neutral-950 flex-col sm:flex-row items-stretch sm:items-center justify-center w-full fixed bottom-0 left-0 right-0 pb-4 gap-4  ">
+      <div className="flex p-4 bg-neutral-950 flex-col sm:flex-row items-stretch sm:items-center justify-center w-full pb-4 gap-4  ">
         <Input
           handleEnter={saveTextInServer}
           isSavingTheText={isSavingTheText}
