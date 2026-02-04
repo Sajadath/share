@@ -58,6 +58,7 @@ const Input: FC<InputProps> = ({
         transition-all duration-300
         resize-none overflow-hidden
         disabled:opacity-40
+        backdrop-blur-2xl
       "
     />
   );

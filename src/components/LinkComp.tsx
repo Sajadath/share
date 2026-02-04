@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "motion/react";
 import { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import LoadingSpinner from "./LoadingSpinner";
@@ -28,7 +27,7 @@ function LinkComp({
   };
   return (
     <div
-      className={`flex p-3 w-full bg-black/10 flex-col gap-2 border-2 shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] rounded-2xl transition-all duration-500  ${
+      className={`flex p-3 w-full my-3 bg-black/10 flex-col gap-2 border-2 shadow-[0_0_10px_2px_var(--tw-shadow-color),inset_0_0_6px_4px_var(--tw-shadow-color)] rounded-2xl transition-all duration-500  ${
         isCoppied
           ? "border-green-400 shadow-green-400"
           : "border-blue-400 shadow-blue-400"
@@ -108,7 +107,7 @@ function LinkComp({
           setIsCoppied(true);
         }}
         className={`wrap-break-word max-w-full  transition-all  duration-500 ${
-          isCoppied ? "text-green-400" : "text-blue-400"
+          isCoppied ? "text-green-400" : "text-blue-400 cursor-pointer"
         }`}
       >
         {typeof itemValue === "string" ? itemValue : JSON.stringify(itemValue)}

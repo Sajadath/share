@@ -4,8 +4,8 @@ import "./globals.css";
 import ToastifyProvider from "@/providers/ToastifyProvider";
 
 export const metadata = {
-  title: "Modern",
-  description: "modern UI",
+  title: "Share It",
+  description: "Share wtf you want",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-950 text-white">
+      <body className="bg-neutral-950 text-white relative">
         <ReactQueryProvider>
           <ToastifyProvider>{children}</ToastifyProvider>
         </ReactQueryProvider>
